@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TOEFL Vocabulary Trainer</title>
+  <style>
+    :root{
+      --bg:#f8fafc;
+      --card:#ffffff;
+      --text:#0f172a;
+      --muted:#64748b;
+      --line:#dbe4ee;
+      --primary:#2563eb;
+      --primary-dark:#1d4ed8;
+      --success:#16a34a;
+      --danger:#dc2626;
+      --warning:#f59e0b;
+      --shadow:0 12px 30px rgba(15,23,42,.08);
+      --radius:20px;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,"PingFang SC","Microsoft YaHei",sans-serif;
+      background:linear-gradient(180deg,#f8fafc 0%,#eef2ff 100%);
+      color:var(--text);
+    }
+    .container{max-width:1100px;margin:0 auto;padding:24px}
+    .hidden{display:none !important}
+    .card{
+      background:var(--card);
+      border-radius:var(--radius);
+      border:1px solid rgba(148,163,184,.16);
+      box-shadow:var(--shadow);
+    }
+    .hero{padding:28px;margin-bottom:18px}
+    .hero-grid{display:grid;grid-template-columns:1.4fr .9fr;gap:18px}
+    h1,h2,h3,p{margin:0}
+    h1{font-size:34px;line-height:1.15}
+    h2{font-size:24px}
+    .sub{margin-top:10px;color:var(--muted);line-height:1.7}
+    .row{display:flex;gap:10px;flex-wrap:wrap}
+    .space-between{justify-content:space-between;align-items:center}
+    .badge{
+      display:inline-flex;
+      align-items:center;
+      padding:7px 12px;
+      border-radius:999px;
+      background:#eff6ff;
+      color:#1d4ed8;
+      font-size:13px;
+      font-weight:700;
+      margin-right:8px;
+      margin-top:10px;
+    }
+    .mini{
+      background:#f8fafc;
+      border-radius:16px;
+      padding:16px;
+      border:1px solid rgba(148,163,184,.16);
+      margin-bottom:12px;
+    }
+    .mini-label{color:var(--muted);font-size:13px}
+    .mini-value{font-size:28px;font-weight:800;margin-top:5px}
+    .progress-bar{
+      width:100%;
+      height:10px;
+      background:#e2e8f0;
+      border-radius:999px;
+      overflow:hidden;
+      margin-top:10px;
+    }
+    .progress-fill{
+      height:100%;
+      width:0%;
+      background:linear-gradient(90deg,var(--primary),#60a5fa);
+    }
+    .tabs{
+      display:grid;
+      grid-template-columns:repeat(5,minmax(0,1fr));
+      gap:8px;
+      margin-bottom:18px;
+    }
+    .tab{
+      border:1px solid #cbd5e1;
+      background:#fff;
+      border-radius:14px;
+      padding:12px 14px;
+      font-size:15px;
+      font-weight:700;
+      cursor:pointer;
+    }
+    .tab.active{
+      background:#dbeafe;
+      color:#1d4ed8;
+      border-color:#93c5fd;
+    }
+    .panel{display:none}
+    .panel.active{display:block}
+    .section{padding:22px}
+    .section-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px}
+    .flash{
+      border-radius:20px;
+      background:linear-gradient(180deg,#fff 0%,#f8fafc 100%);
+      border:1px solid rgba(148,163,184,.16);
+      padding:24px;
+    }
+    .word{font-size:42px;font-weight:800;line-height:1.1}
+    .phonetic{margin-top:10px;color:var(--muted);font-size:18px}
+    .meaning-box{
+      margin-top:20px;
+      background:#f8fafc;
+      border-radius:16px;
+      padding:16px;
+      border:1px dashed #cbd5e1;
+      min-height:80px;
+      line-height:1.7;
+      font-size:18px;
+    }
+    .input,.textarea{
+      width:100%;
+      border:1px solid #cbd5e1;
+      border-radius:14px;
+      padding:12px 14px;
+      font-size:15px;
+      outline:none;
+      background:#fff;
+      color:var(--text);
+    }
+    .input:focus,.textarea:focus{
+      border-color:var(--primary);
+      box-shadow:0 0 0 3px rgba(37,99,235,.12);
+    }
+    .textarea{
+      min-height:180px;
+      resize:vertical;
+      font-family:inherit;
+      line-height:1.6;
+    }
+    .btn{
+      border:none;
+      border-radius:14px;
+      padding:11px 16px;
+      font-size:15px;
+      font-weight:700;
+      cursor:pointer;
+      background:var(--primary);
+      color:#fff;
+    }
+    .btn:hover{background:var(--primary-dark)}
+    .btn.secondary{background:#e2e8f0;color:#0f172a}
+    .btn.secondary:hover{background:#cbd5e1}
+    .btn.success{background:var(--success)}
+    .btn.success:hover{background:#15803d}
+    .btn.danger{background:var(--danger)}
+    .btn.danger:hover{background:#b91c1c}
+    .btn.warning{background:var(--warning);color:#111827}
+    .btn.warning:hover{background:#d97706;color:#fff}
+    .btn.ghost{background:#fff;color:#0f172a;border:1px solid #cbd5e1}
+    .btn.ghost:hover{background:#f8fafc}
+    .grid-2{
+      display:grid;
+      grid-template-columns:repeat(2,minmax(0,1fr));
+      gap:14px;
+    }
+    .word-card{
+      background:#fff;
+      border:1px solid rgba(148,163,184,.16);
+      border-radius:18px;
+      padding:16px;
+    }
+    .word-card-word{font-size:22px;font-weight:700}
+    .word-card-phonetic{font-size:14px;color:var(--muted);margin-top:4px}
+    .word-card-meaning{margin-top:10px;line-height:1.6}
+    .section-note{
+      padding:14px;
+      background:#f8fafc;
+      border-radius:16px;
+      color:var(--muted);
+      border:1px solid rgba(148,163,184,.16);
+      line-height:1.7;
+      font-size:14px;
+    }
+    .pill{
+      display:inline-flex;
+      align-items:center;
+      padding:5px 10px;
+      border-radius:999px;
+      background:#f1f5f9;
+      font-size:12px;
+      font-weight:700;
+      color:#334155;
+    }
+    .login-wrap{max-width:420px;margin:90px auto;padding:20px}
+    .login-card{padding:24px}
+    code{
+      background:#eef2ff;
+      padding:2px 6px;
+      border-radius:8px;
+      font-size:13px;
+    }
+    @media (max-width:900px){
+      .hero-grid,.grid-2{grid-template-columns:1fr}
+      .tabs{grid-template-columns:repeat(2,minmax(0,1fr))}
+      .word{font-size:32px}
+      .container{padding:16px}
+    }
+  </style>
+</head>
+<body>
+  <div id="loginView" class="login-wrap hidden">
+    <div class="card login-card">
+      <h1>TOEFL Vocabulary Trainer</h1>
+      <p class="sub">输入名字后开始使用。学习记录会自动保存在当前浏览器。</p>
+      <div class="row" style="margin-top:16px;">
+        <input id="loginInput" class="input" placeholder="输入你的名字" />
+        <button id="loginBtn" class="btn">开始学习</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="appView" class="container hidden">
+    <section class="card hero">
+      <div class="hero-grid">
+        <div>
+          <h1>TOEFL Vocabulary Trainer</h1>
+          <p class="sub">支持闪卡、默写、词库搜索、错题本、导入词表和掌握筛选。点击“我会了”后，单词会从当前练习列表里移除。</p>
+          <div>
+            <span class="badge" id="userBadge"></span>
+            <span class="badge" id="remainBadge"></span>
+          </div>
+        </div>
+        <div>
+          <div class="mini">
+            <div class="mini-label">学习进度</div>
+            <div class="mini-value" id="progressText">0/0</div>
+            <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+          </div>
+          <div class="mini">
+            <div class="mini-label">统计</div>
+            <div class="sub" id="miniStats">已掌握 0 个，错题 0 个</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="tabs">
+      <button class="tab active" data-tab="flashcards">闪卡</button>
+      <button class="tab" data-tab="dictation">默写</button>
+      <button class="tab" data-tab="dictionary">词库</button>
+      <button class="tab" data-tab="mistakes">错题本</button>
+      <button class="tab" data-tab="import">导入</button>
+    </div>
+
+    <section class="panel active" id="panel-flashcards">
+      <div class="card section">
+        <div class="section-head">
+          <h2>闪卡记忆</h2>
+          <div class="muted" id="flashCounter"></div>
+        </div>
+
+        <div class="flash">
+          <div class="row space-between">
+            <div>
+              <div class="word" id="flashWord"></div>
+              <div class="phonetic" id="flashPhonetic"></div>
+            </div>
+            <button class="btn ghost" id="speakFlashBtn">🔊 发音</button>
+          </div>
+          <div class="meaning-box" id="flashMeaning">点击“显示释义”查看中文</div>
+        </div>
+
+        <div class="row" style="margin-top:16px;">
+          <button class="btn" id="toggleMeaningBtn">显示释义</button>
+          <button class="btn success" id="knowBtn">我会了</button>
+          <button class="btn secondary" id="nextFlashBtn">下一个</button>
+          <button class="btn ghost" id="shuffleBtn">重新洗牌</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel" id="panel-dictation">
+      <div class="card section">
+        <div class="section-head"><h2>中英默写</h2></div>
+        <div class="flash">
+          <div class="muted">根据中文写出英文</div>
+          <div class="word" style="font-size:34px;margin-top:8px;" id="dictationMeaning"></div>
+        </div>
+        <div class="row" style="margin-top:16px;">
+          <input id="dictationInput" class="input" placeholder="输入英文单词" />
+          <button class="btn" id="dictationCheckBtn">检查</button>
+        </div>
+        <div class="section-note" id="dictationResult" style="margin-top:14px;">输入后点击“检查”。</div>
+        <div class="row" style="margin-top:14px;">
+          <button class="btn secondary" id="nextDictationBtn">下一题</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel" id="panel-dictionary">
+      <div class="card section">
+        <div class="section-head"><h2>词库搜索</h2></div>
+        <div class="row"><input id="searchInput" class="input" placeholder="搜索单词或中文释义" /></div>
+        <div class="grid-2" id="dictionaryGrid" style="margin-top:16px;"></div>
+      </div>
+    </section>
+
+    <section class="panel" id="panel-mistakes">
+      <div class="card section">
+        <div class="section-head"><h2>错题本</h2></div>
+        <div class="section-note">答错或默写错误的单词会进入这里。</div>
+        <div class="grid-2" id="mistakesGrid" style="margin-top:16px;"></div>
+      </div>
+    </section>
+
+    <section class="panel" id="panel-import">
+      <div class="card section">
+        <div class="section-head"><h2>导入词表</h2></div>
+        <div class="section-note">
+          支持 txt / csv。每行格式：<br />
+          <code>abandon	放弃；抛弃	/əˈbændən/</code>
+        </div>
+        <div class="row" style="margin-top:16px;">
+          <input type="file" id="fileInput" accept=".txt,.csv" class="hidden" />
+          <button class="btn" id="uploadBtn">上传词表文件</button>
+          <button class="btn danger" id="resetBtn">恢复默认并清空进度</button>
+        </div>
+
+        <div class="section-note" style="margin-top:16px;">
+          也可以直接粘贴：
+          <textarea id="pasteWords" class="textarea" placeholder="每行：单词 TAB 中文 TAB 音标（可选）"></textarea>
+          <div class="row" style="margin-top:12px;">
+            <button class="btn warning" id="importTextBtn">从文本导入</button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <script>
+    const STORAGE_KEYS = {
+      user: 'toefl_user_name',
+      words: 'toefl_words_bank',
+      known: 'toefl_known_words',
+      mistakes: 'toefl_mistakes_words'
+    };
+
+    const DEFAULT_WORDS = [
+      { word: 'abandon', meaning: '放弃；抛弃', phonetic: '/əˈbændən/' },
+      { word: 'adapt', meaning: '适应；改编', phonetic: '/əˈdæpt/' },
+      { word: 'advocate', meaning: '提倡；拥护', phonetic: '/ˈædvəkeɪt/' },
+      { word: 'allocate', meaning: '分配', phonetic: '/ˈæləkeɪt/' },
+      { word: 'assess', meaning: '评估', phonetic: '/əˈses/' },
+      { word: 'coherent', meaning: '连贯的', phonetic: '/koʊˈhɪrənt/' },
+      { word: 'derive', meaning: '源自；获得', phonetic: '/dɪˈraɪv/' },
+      { word: 'enhance', meaning: '增强；提高', phonetic: '/ɪnˈhæns/' },
+      { word: 'significant', meaning: '重要的；显著的', phonetic: '/sɪɡˈnɪfɪkənt/' },
+      { word: 'implement', meaning: '实施', phonetic: '/ˈɪmplɪment/' },
+      { word: 'maintain', meaning: '维持；主张', phonetic: '/meɪnˈteɪn/' },
+      { word: 'obtain', meaning: '获得', phonetic: '/əbˈteɪn/' }
+    ];
+
+    const state = {
+      user: '',
+      words: [],
+      knownWords: [],
+      mistakeWords: [],
+      deck: [],
+      index: 0,
+      showMeaning: false,
+      query: ''
+    };
+
+    function saveJson(key, value) {
+      localStorage.setItem(key, JSON.stringify(value));
+    }
+
+    function loadJson(key, fallback) {
+      try {
+        const raw = localStorage.getItem(key);
+        return raw ? JSON.parse(raw) : fallback;
+      } catch {
+        return fallback;
+      }
+    }
+
+    function shuffle(arr) {
+      const copy = [...arr];
+      for (let i = copy.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [copy[i], copy[j]] = [copy[j], copy[i]];
+      }
+      return copy;
+    }
+
+    function currentWord() {
+      return state.deck[state.index] || null;
+    }
+
+    function speakWord(word) {
+      if (!('speechSynthesis' in window)) return;
+      const u = new SpeechSynthesisUtterance(word);
+      u.lang = 'en-US';
+      window.speechSynthesis.cancel();
+      window.speechSynthesis.speak(u);
+    }
+
+    function normalizeText(text) {
+      return text.trim().toLowerCase().replace(/\s+/g, ' ');
+    }
+
+    function persist() {
+      saveJson(STORAGE_KEYS.words, state.words);
+      saveJson(STORAGE_KEYS.known, state.knownWords);
+      saveJson(STORAGE_KEYS.mistakes, state.mistakeWords);
+    }
+
+    function refreshDeck() {
+      const unmastered = state.words.filter(w => !state.knownWords.includes(w.word));
+      state.deck = shuffle(unmastered);
+      state.index = 0;
+    }
+
+    function renderHeader() {
+      document.getElementById('userBadge').textContent = `当前用户：${state.user}`;
+      document.getElementById('remainBadge').textContent = `剩余未掌握：${state.deck.length}`;
+      document.getElementById('progressText').textContent = `${state.knownWords.length}/${state.words.length}`;
+      const progress = state.words.length ? Math.round((state.knownWords.length / state.words.length) * 100) : 0;
+      document.getElementById('progressFill').style.width = `${progress}%`;
+      document.getElementById('miniStats').textContent = `已掌握 ${state.knownWords.length} 个，错题 ${state.mistakeWords.length} 个`;
+    }
+
+    function renderFlash() {
+      const current = currentWord();
+      document.getElementById('flashCounter').textContent = state.deck.length ? `${state.index + 1} / ${state.deck.length}` : '0 / 0';
+
+      if (!current) {
+        document.getElementById('flashWord').textContent = '太棒了！';
+        document.getElementById('flashPhonetic').textContent = '当前练习列表里的单词你都学会了';
+        document.getElementById('flashMeaning').textContent = '你可以去“导入”增加新词，或者点击“恢复默认并清空进度”重新开始。';
+        document.getElementById('dictationMeaning').textContent = '当前没有未掌握单词';
+        return;
+      }
+
+      document.getElementById('flashWord').textContent = current.word;
+      document.getElementById('flashPhonetic').textContent = current.phonetic || '';
+      document.getElementById('flashMeaning').textContent = state.showMeaning ? (current.meaning || '') : '点击“显示释义”查看中文';
+      document.getElementById('toggleMeaningBtn').textContent = state.showMeaning ? '隐藏释义' : '显示释义';
+      document.getElementById('dictationMeaning').textContent = current.meaning || '';
+    }
+
+    function renderDictionary() {
+      const grid = document.getElementById('dictionaryGrid');
+      grid.innerHTML = '';
+
+      const filtered = state.words.filter(w =>
+        `${w.word} ${w.meaning} ${w.phonetic || ''}`.toLowerCase().includes(state.query.toLowerCase())
+      );
+
+      filtered.forEach(w => {
+        const mastered = state.knownWords.includes(w.word);
+        const card = document.createElement('div');
+        card.className = 'word-card';
+        card.innerHTML = `
+          <div class="row space-between">
+            <div>
+              <div class="word-card-word">${w.word} ${mastered ? '<span class="pill">已会</span>' : ''}</div>
+              <div class="word-card-phonetic">${w.phonetic || ''}</div>
+            </div>
+            <button class="btn ghost" style="padding:8px 10px;border-radius:12px;">🔊</button>
+          </div>
+          <div class="word-card-meaning">${w.meaning}</div>
+        `;
+        card.querySelector('button').addEventListener('click', () => speakWord(w.word));
+        grid.appendChild(card);
+      });
+    }
+
+    function renderMistakes() {
+      const grid = document.getElementById('mistakesGrid');
+      grid.innerHTML = '';
+
+      if (!state.mistakeWords.length) {
+        const div = document.createElement('div');
+        div.className = 'section-note';
+        div.textContent = '暂时还没有错题。';
+        grid.appendChild(div);
+        return;
+      }
+
+      state.mistakeWords.forEach(word => {
+        const item = state.words.find(w => w.word === word);
+        if (!item) return;
+
+        const card = document.createElement('div');
+        card.className = 'word-card';
+        card.innerHTML = `
+          <div class="word-card-word">${item.word}</div>
+          <div class="word-card-phonetic">${item.phonetic || ''}</div>
+          <div class="word-card-meaning">${item.meaning}</div>
+        `;
+        grid.appendChild(card);
+      });
+    }
+
+    function renderAll() {
+      renderHeader();
+      renderFlash();
+      renderDictionary();
+      renderMistakes();
+    }
+
+    function nextCard() {
+      state.showMeaning = false;
+      if (!state.deck.length) {
+        renderFlash();
+        return;
+      }
+      state.index = (state.index + 1) % state.deck.length;
+      document.getElementById('dictationInput').value = '';
+      document.getElementById('dictationResult').textContent = '输入后点击“检查”。';
+      renderFlash();
+    }
+
+    function markKnown() {
+      const current = currentWord();
+      if (!current) return;
+
+      if (!state.knownWords.includes(current.word)) {
+        state.knownWords.push(current.word);
+      }
+
+      refreshDeck();
+      state.showMeaning = false;
+      persist();
+      renderAll();
+
+      document.getElementById('dictationInput').value = '';
+      document.getElementById('dictationResult').textContent = '输入后点击“检查”。';
+    }
+
+    function checkDictation() {
+      const current = currentWord();
+      if (!current) return;
+
+      const input = document.getElementById('dictationInput').value;
+      const result = document.getElementById('dictationResult');
+      const ok = normalizeText(input) === normalizeText(current.word);
+
+      if (ok) {
+        result.textContent = '✅ 拼写正确';
+      } else {
+        result.textContent = `❌ 正确答案：${current.word}`;
+        if (!state.mistakeWords.includes(current.word)) {
+          state.mistakeWords.push(current.word);
+        }
+        persist();
+        renderMistakes();
+        renderHeader();
+      }
+    }
+
+    function importWordsFromText(text) {
+      const parsed = text
+        .split(/\r?\n/)
+        .map(line => line.trim())
+        .filter(Boolean)
+        .map(line => {
+          const parts = line.split(/\t|,/).map(p => p.trim());
+          return {
+            word: parts[0] || '',
+            meaning: parts[1] || '',
+            phonetic: parts[2] || ''
+          };
+        })
+        .filter(w => w.word && w.meaning);
+
+      if (!parsed.length) return;
+
+      state.words = parsed;
+      state.knownWords = [];
+      state.mistakeWords = [];
+      state.showMeaning = false;
+
+      refreshDeck();
+      persist();
+      renderAll();
+
+      document.getElementById('dictationInput').value = '';
+      document.getElementById('dictationResult').textContent = '输入后点击“检查”。';
+
+      alert(`已成功导入 ${parsed.length} 个单词。`);
+    }
+
+    function resetAllData() {
+      localStorage.removeItem(STORAGE_KEYS.words);
+      localStorage.removeItem(STORAGE_KEYS.known);
+      localStorage.removeItem(STORAGE_KEYS.mistakes);
+
+      state.words = [...DEFAULT_WORDS];
+      state.knownWords = [];
+      state.mistakeWords = [];
+      state.showMeaning = false;
+
+      refreshDeck();
+      renderAll();
+
+      document.getElementById('dictationInput').value = '';
+      document.getElementById('dictationResult').textContent = '输入后点击“检查”。';
+    }
+
+    function bindEvents() {
+      document.getElementById('loginBtn').addEventListener('click', () => {
+        const name = document.getElementById('loginInput').value.trim();
+        if (!name) return;
+        localStorage.setItem(STORAGE_KEYS.user, name);
+        state.user = name;
+        document.getElementById('loginView').classList.add('hidden');
+        document.getElementById('appView').classList.remove('hidden');
+        renderAll();
+      });
+
+      document.querySelectorAll('.tab').forEach(tab => {
+        tab.addEventListener('click', () => {
+          document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+          document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+          tab.classList.add('active');
+          document.getElementById(`panel-${tab.dataset.tab}`).classList.add('active');
+        });
+      });
+
+      document.getElementById('toggleMeaningBtn').addEventListener('click', () => {
+        state.showMeaning = !state.showMeaning;
+        renderFlash();
+      });
+
+      document.getElementById('knowBtn').addEventListener('click', markKnown);
+      document.getElementById('nextFlashBtn').addEventListener('click', nextCard);
+
+      document.getElementById('shuffleBtn').addEventListener('click', () => {
+        refreshDeck();
+        state.showMeaning = false;
+        renderFlash();
+      });
+
+      document.getElementById('speakFlashBtn').addEventListener('click', () => {
+        const current = currentWord();
+        if (current) speakWord(current.word);
+      });
+
+      document.getElementById('dictationCheckBtn').addEventListener('click', checkDictation);
+      document.getElementById('nextDictationBtn').addEventListener('click', nextCard);
+
+      document.getElementById('searchInput').addEventListener('input', e => {
+        state.query = e.target.value;
+        renderDictionary();
+      });
+
+      document.getElementById('uploadBtn').addEventListener('click', () => {
+        document.getElementById('fileInput').click();
+      });
+
+      document.getElementById('fileInput').addEventListener('change', e => {
+        const file = e.target.files[0];
+        if (!file) return;
+        const reader = new FileReader();
+        reader.onload = event => importWordsFromText(String(event.target.result || ''));
+        reader.readAsText(file, 'utf-8');
+      });
+
+      document.getElementById('importTextBtn').addEventListener('click', () => {
+        importWordsFromText(document.getElementById('pasteWords').value);
+      });
+
+      document.getElementById('resetBtn').addEventListener('click', resetAllData);
+    }
+
+    function init() {
+      state.user = localStorage.getItem(STORAGE_KEYS.user) || '';
+      state.words = loadJson(STORAGE_KEYS.words, DEFAULT_WORDS);
+      state.knownWords = loadJson(STORAGE_KEYS.known, []);
+      state.mistakeWords = loadJson(STORAGE_KEYS.mistakes, []);
+
+      refreshDeck();
+      bindEvents();
+
+      if (state.user) {
+        document.getElementById('appView').classList.remove('hidden');
+        renderAll();
+      } else {
+        document.getElementById('loginView').classList.remove('hidden');
+      }
+    }
+
+    init();
+  </script>
+</body>
+</html>
