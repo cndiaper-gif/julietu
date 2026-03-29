@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="zh-CN">
 <head>
   <meta charset="UTF-8" />
@@ -84,206 +85,210 @@
     }
     .panel.active { display: block; }
 
-    .section-title {
-      margin: 0 0 14px;
-      font-size: 22px;
-    }
-    .sub-text {
-      color: #6b7280;
-      margin-bottom: 14px;
-      line-height: 1.6;
-    }
-    .card {
-      background: #f9fafb;
-      border: 1px solid #e5e7eb;
-      border-radius: 16px;
-      padding: 16px;
-      margin-bottom: 14px;
-    }
-    .word-big {
-      font-size: 34px;
-      font-weight: 800;
-      margin-bottom: 8px;
-      word-break: break-word;
-    }
-    .phonetic {
-      color: #4b5563;
-      margin-bottom: 10px;
-      font-size: 16px;
-    }
-    .meaning {
-      font-size: 18px;
-      color: #111827;
-      line-height: 1.7;
-      min-height: 32px;
-    }
-    .btn-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 14px;
-    }
-    button, .file-label {
-      border: none;
-      border-radius: 12px;
-      padding: 10px 14px;
-      cursor: pointer;
-      font-size: 14px;
-      font-weight: 600;
-      transition: 0.2s ease;
-    }
-    button:hover, .file-label:hover {
-      transform: translateY(-1px);
-    }
-    .primary { background: #2563eb; color: #fff; }
-    .secondary { background: #e5e7eb; color: #111827; }
-    .success { background: #16a34a; color: #fff; }
-    .warning { background: #f59e0b; color: #fff; }
-    .danger { background: #dc2626; color: #fff; }
-    .muted { background: #64748b; color: #fff; }
+```
+.section-title {
+  margin: 0 0 14px;
+  font-size: 22px;
+}
+.sub-text {
+  color: #6b7280;
+  margin-bottom: 14px;
+  line-height: 1.6;
+}
+.card {
+  background: #f9fafb;
+  border: 1px solid #e5e7eb;
+  border-radius: 16px;
+  padding: 16px;
+  margin-bottom: 14px;
+}
+.word-big {
+  font-size: 34px;
+  font-weight: 800;
+  margin-bottom: 8px;
+  word-break: break-word;
+}
+.phonetic {
+  color: #4b5563;
+  margin-bottom: 10px;
+  font-size: 16px;
+}
+.meaning {
+  font-size: 18px;
+  color: #111827;
+  line-height: 1.7;
+  min-height: 32px;
+}
+.btn-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 14px;
+}
+button, .file-label {
+  border: none;
+  border-radius: 12px;
+  padding: 10px 14px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  transition: 0.2s ease;
+}
+button:hover, .file-label:hover {
+  transform: translateY(-1px);
+}
+.primary { background: #2563eb; color: #fff; }
+.secondary { background: #e5e7eb; color: #111827; }
+.success { background: #16a34a; color: #fff; }
+.warning { background: #f59e0b; color: #fff; }
+.danger { background: #dc2626; color: #fff; }
+.muted { background: #64748b; color: #fff; }
 
-    input[type="text"],
-    input[type="number"],
-    textarea {
-      width: 100%;
-      border: 1px solid #d1d5db;
-      border-radius: 12px;
-      padding: 12px 14px;
-      font-size: 15px;
-      outline: none;
-      background: #fff;
-    }
-    input:focus, textarea:focus {
-      border-color: #2563eb;
-      box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
-    }
-    textarea {
-      min-height: 180px;
-      resize: vertical;
-    }
+input[type="text"],
+input[type="number"],
+textarea {
+  width: 100%;
+  border: 1px solid #d1d5db;
+  border-radius: 12px;
+  padding: 12px 14px;
+  font-size: 15px;
+  outline: none;
+  background: #fff;
+}
+input:focus, textarea:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+}
+textarea {
+  min-height: 180px;
+  resize: vertical;
+}
 
-    .grid-2 {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 14px;
-    }
-    .grid-3 {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 14px;
-    }
+.grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+}
 
-    .progress-wrap {
-      margin: 10px 0 16px;
-    }
-    .progress-bar {
-      width: 100%;
-      height: 14px;
-      background: #e5e7eb;
-      border-radius: 999px;
-      overflow: hidden;
-    }
-    .progress-inner {
-      height: 100%;
-      width: 0%;
-      background: linear-gradient(90deg, #2563eb, #22c55e);
-      border-radius: 999px;
-      transition: width 0.3s ease;
-    }
-    .progress-text {
-      margin-top: 8px;
-      color: #4b5563;
-      font-size: 14px;
-    }
+.progress-wrap {
+  margin: 10px 0 16px;
+}
+.progress-bar {
+  width: 100%;
+  height: 14px;
+  background: #e5e7eb;
+  border-radius: 999px;
+  overflow: hidden;
+}
+.progress-inner {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, #2563eb, #22c55e);
+  border-radius: 999px;
+  transition: width 0.3s ease;
+}
+.progress-text {
+  margin-top: 8px;
+  color: #4b5563;
+  font-size: 14px;
+}
 
-    .list {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
-    .word-item {
-      background: #f9fafb;
-      border: 1px solid #e5e7eb;
-      border-radius: 14px;
-      padding: 14px;
-      display: flex;
-      justify-content: space-between;
-      gap: 12px;
-      align-items: flex-start;
-    }
-    .word-info {
-      flex: 1;
-      min-width: 0;
-    }
-    .word-title {
-      font-size: 18px;
-      font-weight: 700;
-      margin-bottom: 6px;
-      word-break: break-word;
-    }
-    .word-meta {
-      color: #6b7280;
-      font-size: 14px;
-      line-height: 1.6;
-      word-break: break-word;
-    }
-    .word-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      justify-content: flex-end;
-    }
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.word-item {
+  background: #f9fafb;
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+  padding: 14px;
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  align-items: flex-start;
+}
+.word-info {
+  flex: 1;
+  min-width: 0;
+}
+.word-title {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 6px;
+  word-break: break-word;
+}
+.word-meta {
+  color: #6b7280;
+  font-size: 14px;
+  line-height: 1.6;
+  word-break: break-word;
+}
+.word-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: flex-end;
+}
 
-    .badge {
-      display: inline-block;
-      font-size: 12px;
-      border-radius: 999px;
-      padding: 4px 10px;
-      font-weight: 700;
-      margin-right: 6px;
-      margin-bottom: 6px;
-    }
-    .badge-blue { background: #dbeafe; color: #1d4ed8; }
-    .badge-green { background: #dcfce7; color: #15803d; }
-    .badge-red { background: #fee2e2; color: #b91c1c; }
-    .badge-yellow { background: #fef3c7; color: #b45309; }
+.badge {
+  display: inline-block;
+  font-size: 12px;
+  border-radius: 999px;
+  padding: 4px 10px;
+  font-weight: 700;
+  margin-right: 6px;
+  margin-bottom: 6px;
+}
+.badge-blue { background: #dbeafe; color: #1d4ed8; }
+.badge-green { background: #dcfce7; color: #15803d; }
+.badge-red { background: #fee2e2; color: #b91c1c; }
+.badge-yellow { background: #fef3c7; color: #b45309; }
 
-    .empty {
-      text-align: center;
-      padding: 24px 10px;
-      color: #6b7280;
-      border: 1px dashed #d1d5db;
-      border-radius: 14px;
-      background: #fafafa;
-    }
+.empty {
+  text-align: center;
+  padding: 24px 10px;
+  color: #6b7280;
+  border: 1px dashed #d1d5db;
+  border-radius: 14px;
+  background: #fafafa;
+}
 
-    .hidden { display: none; }
-    .file-label {
-      display: inline-block;
-      background: #2563eb;
-      color: #fff;
-    }
-    .footer-note {
-      margin-top: 14px;
-      color: #6b7280;
-      font-size: 13px;
-      line-height: 1.6;
-    }
+.hidden { display: none; }
 
-    @media (max-width: 900px) {
-      .stats, .grid-2, .grid-3 {
-        grid-template-columns: 1fr;
-      }
-      .word-item {
-        flex-direction: column;
-      }
-      .word-actions {
-        justify-content: flex-start;
-      }
-      .word-big {
-        font-size: 28px;
-      }
-    }
+.file-label {
+  display: inline-block;
+  background: #2563eb;
+  color: #fff;
+}
+.footer-note {
+  margin-top: 14px;
+  color: #6b7280;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+@media (max-width: 900px) {
+  .stats, .grid-2, .grid-3 {
+    grid-template-columns: 1fr;
+  }
+  .word-item {
+    flex-direction: column;
+  }
+  .word-actions {
+    justify-content: flex-start;
+  }
+  .word-big {
+    font-size: 28px;
+  }
+}
+```
+
   </style>
 </head>
 <body>
@@ -296,170 +301,170 @@
       </p>
     </div>
 
-    <div class="stats">
-      <div class="stat-card">
-        <div class="stat-label">词库总数</div>
-        <div class="stat-value" id="totalWordsStat">0</div>
+```
+<div class="stats">
+  <div class="stat-card">
+    <div class="stat-label">词库总数</div>
+    <div class="stat-value" id="totalWordsStat">0</div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-label">已掌握</div>
+    <div class="stat-value" id="masteredStat">0</div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-label">错题数</div>
+    <div class="stat-value" id="wrongStat">0</div>
+  </div>
+  <div class="stat-card">
+    <div class="stat-label">今日进度</div>
+    <div class="stat-value" id="todayProgressStat">0/0</div>
+  </div>
+</div>
+
+<div class="tabs">
+  <button class="tab-btn active" data-tab="study">今日学习</button>
+  <button class="tab-btn" data-tab="dictation">中英默写</button>
+  <button class="tab-btn" data-tab="library">词库</button>
+  <button class="tab-btn" data-tab="wrongbook">错题本</button>
+  <button class="tab-btn" data-tab="stats">统计</button>
+  <button class="tab-btn" data-tab="import">导入</button>
+</div>
+
+<div class="panel active" id="panel-study">
+  <h2 class="section-title">今日学习列表</h2>
+  <div class="sub-text">
+    点击“显示释义”查看中文；点击“我会了”会进入下一阶段复习；如果你已经完全掌握，也可以在“词库”里直接删除。
+  </div>
+
+  <div class="progress-wrap">
+    <div class="progress-bar">
+      <div class="progress-inner" id="studyProgressBar"></div>
+    </div>
+    <div class="progress-text" id="studyProgressText">0/0</div>
+  </div>
+
+  <div class="card">
+    <div class="word-big" id="studyWord">暂无今日学习单词</div>
+    <div class="phonetic" id="studyPhonetic"></div>
+    <div class="meaning" id="studyMeaning">请先导入词库，然后点击“重建今天计划”。</div>
+    <div class="btn-row">
+      <button class="secondary" id="speakBtn">🔊 发音</button>
+      <button class="primary" id="showMeaningBtn">显示释义</button>
+      <button class="success" id="markKnownBtn">我会了</button>
+      <button class="warning" id="nextBtn">下一个</button>
+      <button class="muted" id="rebuildPlanBtn">重建今天计划</button>
+    </div>
+  </div>
+
+  <div class="card">
+    <div><strong>今天计划</strong></div>
+    <div class="footer-note" id="todayPlanInfo">新词 0 个，复习 0 个，错题 0 个</div>
+  </div>
+</div>
+
+<div class="panel" id="panel-dictation">
+  <h2 class="section-title">中英默写</h2>
+  <div class="sub-text">根据中文写出英文，答错会进入错题本。</div>
+
+  <div class="card">
+    <div class="word-title">中文提示</div>
+    <div class="meaning" id="dictationMeaning">暂无题目</div>
+    <div class="phonetic" id="dictationPhonetic"></div>
+    <div style="margin-top:12px;">
+      <input type="text" id="dictationInput" placeholder="请输入英文单词" />
+    </div>
+    <div class="btn-row">
+      <button class="primary" id="checkDictationBtn">检查</button>
+      <button class="warning" id="nextDictationBtn">下一题</button>
+    </div>
+    <div class="footer-note" id="dictationResult">输入后点击“检查”。</div>
+  </div>
+</div>
+
+<div class="panel" id="panel-library">
+  <h2 class="section-title">词库搜索 / 管理</h2>
+  <div class="sub-text">
+    你现在可以在这里<strong>直接删除会的单词</strong>。删除后会同步清除该词相关进度。
+  </div>
+
+  <div class="grid-2">
+    <input type="text" id="searchInput" placeholder="输入英文或中文搜索..." />
+    <div class="btn-row" style="margin-top:0;">
+      <button class="secondary" id="clearSearchBtn">清空搜索</button>
+      <button class="secondary" id="selectAllBtn">全选当前结果</button>
+      <button class="danger" id="deleteSelectedBtn">批量删除选中</button>
+      <button class="danger" id="deleteMasteredWordsBtn">删除全部已掌握词</button>
+    </div>
+  </div>
+
+  <div style="margin-top:16px;" class="list" id="libraryList"></div>
+</div>
+
+<div class="panel" id="panel-wrongbook">
+  <h2 class="section-title">错题本</h2>
+  <div class="sub-text">默写答错的单词会进入这里，方便集中复习。</div>
+  <div class="list" id="wrongList"></div>
+</div>
+
+<div class="panel" id="panel-stats">
+  <h2 class="section-title">学习统计</h2>
+  <div class="grid-3">
+    <div class="stat-card">
+      <div class="stat-label">词库总数</div>
+      <div class="stat-value" id="statsTotal">0</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-label">已掌握</div>
+      <div class="stat-value" id="statsMastered">0</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-label">错题本</div>
+      <div class="stat-value" id="statsWrong">0</div>
+    </div>
+  </div>
+
+  <div class="card" style="margin-top:16px;">
+    <div class="word-title">学习计划设置</div>
+    <div class="sub-text">你可以设置每天新学多少个、复习多少个。</div>
+    <div class="grid-2">
+      <div>
+        <label>每天新学数量</label>
+        <input type="number" id="newPerDayInput" min="1" value="10" />
       </div>
-      <div class="stat-card">
-        <div class="stat-label">已掌握</div>
-        <div class="stat-value" id="masteredStat">0</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-label">错题数</div>
-        <div class="stat-value" id="wrongStat">0</div>
-      </div>
-      <div class="stat-card">
-        <div class="stat-label">今日进度</div>
-        <div class="stat-value" id="todayProgressStat">0/0</div>
+      <div>
+        <label>每天复习数量</label>
+        <input type="number" id="reviewPerDayInput" min="1" value="10" />
       </div>
     </div>
-
-    <div class="tabs">
-      <button class="tab-btn active" data-tab="study">今日学习</button>
-      <button class="tab-btn" data-tab="dictation">中英默写</button>
-      <button class="tab-btn" data-tab="library">词库</button>
-      <button class="tab-btn" data-tab="wrongbook">错题本</button>
-      <button class="tab-btn" data-tab="stats">统计</button>
-      <button class="tab-btn" data-tab="import">导入</button>
+    <div class="btn-row">
+      <button class="primary" id="savePlanBtn">保存计划</button>
     </div>
+  </div>
+</div>
 
-    <div class="panel active" id="panel-study">
-      <h2 class="section-title">今日学习列表</h2>
-      <div class="sub-text">
-        点击“显示释义”查看中文；点击“我会了”会进入下一阶段复习；如果你已经完全掌握，也可以在“词库”里直接删除。
-      </div>
+<div class="panel" id="panel-import">
+  <h2 class="section-title">导入词表</h2>
+  <div class="sub-text">
+    支持 txt / csv。推荐格式：<br>
+    <code>abandon 放弃；抛弃 /əˈbændən/</code><br>
+    也支持：<code>word,meaning,/phonetic/</code>
+  </div>
 
-      <div class="progress-wrap">
-        <div class="progress-bar">
-          <div class="progress-inner" id="studyProgressBar"></div>
-        </div>
-        <div class="progress-text" id="studyProgressText">0/0</div>
-      </div>
+  <div class="btn-row">
+    <label class="file-label" for="fileInput">上传词表文件</label>
+    <input type="file" id="fileInput" class="hidden" accept=".txt,.csv" />
+    <button class="danger" id="resetAllBtn">恢复默认并清空进度</button>
+  </div>
 
-      <div class="card">
-        <div class="word-big" id="studyWord">暂无今日学习单词</div>
-        <div class="phonetic" id="studyPhonetic"></div>
-        <div class="meaning" id="studyMeaning">请先导入词库，然后点击“重建今天计划”。</div>
-        <div class="btn-row">
-          <button class="secondary" id="speakBtn">🔊 发音</button>
-          <button class="primary" id="showMeaningBtn">显示释义</button>
-          <button class="success" id="markKnownBtn">我会了</button>
-          <button class="warning" id="nextBtn">下一个</button>
-          <button class="muted" id="rebuildPlanBtn">重建今天计划</button>
-        </div>
-      </div>
+  <div class="card">
+    <div class="word-title">也可以直接粘贴：</div>
+    <textarea id="pasteInput" placeholder="每行一个单词，例如：
+```
 
-      <div class="card">
-        <div><strong>今天计划</strong></div>
-        <div class="footer-note" id="todayPlanInfo">新词 0 个，复习 0 个，错题 0 个</div>
-      </div>
-    </div>
-
-    <div class="panel" id="panel-dictation">
-      <h2 class="section-title">中英默写</h2>
-      <div class="sub-text">根据中文写出英文，答错会进入错题本。</div>
-
-      <div class="card">
-        <div class="word-title">中文提示</div>
-        <div class="meaning" id="dictationMeaning">暂无题目</div>
-        <div class="phonetic" id="dictationPhonetic"></div>
-        <div style="margin-top:12px;">
-          <input type="text" id="dictationInput" placeholder="请输入英文单词" />
-        </div>
-        <div class="btn-row">
-          <button class="primary" id="checkDictationBtn">检查</button>
-          <button class="warning" id="nextDictationBtn">下一题</button>
-        </div>
-        <div class="footer-note" id="dictationResult">输入后点击“检查”。</div>
-      </div>
-    </div>
-
-    <div class="panel" id="panel-library">
-      <h2 class="section-title">词库搜索 / 管理</h2>
-      <div class="sub-text">
-        你现在可以在这里<strong>直接删除会的单词</strong>。删除后会同步清除该词相关进度。
-      </div>
-
-      <div class="grid-2">
-        <input type="text" id="searchInput" placeholder="输入英文或中文搜索..." />
-        <div class="btn-row" style="margin-top:0;">
-          <button class="secondary" id="clearSearchBtn">清空搜索</button>
-          <button class="danger" id="deleteMasteredWordsBtn">删除全部已掌握词</button>
-        </div>
-      </div>
-
-      <div style="margin-top:16px;" class="list" id="libraryList"></div>
-    </div>
-
-    <div class="panel" id="panel-wrongbook">
-      <h2 class="section-title">错题本</h2>
-      <div class="sub-text">默写答错的单词会进入这里，方便集中复习。</div>
-      <div class="list" id="wrongList"></div>
-    </div>
-
-    <div class="panel" id="panel-stats">
-      <h2 class="section-title">学习统计</h2>
-      <div class="grid-3">
-        <div class="stat-card">
-          <div class="stat-label">词库总数</div>
-          <div class="stat-value" id="statsTotal">0</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-label">已掌握</div>
-          <div class="stat-value" id="statsMastered">0</div>
-        </div>
-        <div class="stat-card">
-          <div class="stat-label">错题本</div>
-          <div class="stat-value" id="statsWrong">0</div>
-        </div>
-      </div>
-
-      <div class="card" style="margin-top:16px;">
-        <div class="word-title">学习计划设置</div>
-        <div class="sub-text">你可以设置每天新学多少个、复习多少个。</div>
-        <div class="grid-2">
-          <div>
-            <label>每天新学数量</label>
-            <input type="number" id="newPerDayInput" min="1" value="10" />
-          </div>
-          <div>
-            <label>每天复习数量</label>
-            <input type="number" id="reviewPerDayInput" min="1" value="10" />
-          </div>
-        </div>
-        <div class="btn-row">
-          <button class="primary" id="savePlanBtn">保存计划</button>
-        </div>
-      </div>
-    </div>
-
-    <div class="panel" id="panel-import">
-      <h2 class="section-title">导入词表</h2>
-      <div class="sub-text">
-        支持 txt / csv。推荐格式：<br>
-        <code>abandon 放弃；抛弃 /əˈbændən/</code><br>
-        也支持：<code>word,meaning,/phonetic/</code>
-      </div>
-
-      <div class="btn-row">
-        <label class="file-label" for="fileInput">上传词表文件</label>
-        <input type="file" id="fileInput" class="hidden" accept=".txt,.csv" />
-        <button class="danger" id="resetAllBtn">恢复默认并清空进度</button>
-      </div>
-
-      <div class="card">
-        <div class="word-title">也可以直接粘贴：</div>
-        <textarea id="pasteInput" placeholder="每行一个单词，例如：
 abandon 放弃；抛弃 /əˈbændən/
 benefit 利益；好处 /ˈbenɪfɪt/
-conduct 行为；实施 /ˈkɒndʌkt/"></textarea>
-        <div class="btn-row">
-          <button class="primary" id="importTextBtn">从文本导入</button>
-        </div>
-        <div class="footer-note" id="importResult"></div>
-      </div>
-    </div>
+conduct 行为；实施 /ˈkɒndʌkt/"></textarea> <div class="btn-row"> <button class="primary" id="importTextBtn">从文本导入</button> </div> <div class="footer-note" id="importResult"></div> </div> </div>
+
   </div>
 
   <script>
@@ -479,6 +484,7 @@ conduct 行为；实施 /ˈkɒndʌkt/"></textarea>
     ];
 
     let state = loadState();
+    let selectedWordIds = new Set();
 
     function loadState() {
       const raw = localStorage.getItem(STORAGE_KEY);
@@ -755,6 +761,7 @@ conduct 行为；实施 /ˈkɒndʌkt/"></textarea>
       const ok = confirm(`确定删除单词 "${word.word}" 吗？删除后会同步清除学习记录。`);
       if (!ok) return;
 
+      selectedWordIds.delete(id);
       state.words = state.words.filter(w => w.id !== id);
       delete state.progress[id];
       state.wrongWords = state.wrongWords.filter(x => x !== id);
@@ -773,6 +780,54 @@ conduct 行为；实施 /ˈkɒndʌkt/"></textarea>
 
       saveState();
       renderAll();
+    }
+
+    function selectAllFilteredWords() {
+      const q = normalizeWordText(document.getElementById("searchInput").value || "");
+
+      let filtered = [...state.words];
+      if (q) {
+        filtered = filtered.filter(w =>
+          normalizeWordText(w.word).includes(q) ||
+          normalizeWordText(w.meaning).includes(q)
+        );
+      }
+
+      filtered.forEach(w => selectedWordIds.add(w.id));
+      renderLibrary();
+    }
+
+    function deleteSelectedWords() {
+      const ids = [...selectedWordIds].filter(id => !!getWordById(id));
+
+      if (!ids.length) {
+        alert("请先勾选要删除的单词。");
+        return;
+      }
+
+      const ok = confirm(`确定批量删除选中的 ${ids.length} 个单词吗？删除后会同步清除学习记录。`);
+      if (!ok) return;
+
+      const set = new Set(ids);
+
+      state.words = state.words.filter(w => !set.has(w.id));
+      ids.forEach(id => delete state.progress[id]);
+      state.wrongWords = state.wrongWords.filter(id => !set.has(id));
+      state.todayPlan.studyIds = (state.todayPlan.studyIds || []).filter(id => !set.has(id));
+      state.todayPlan.doneIds = (state.todayPlan.doneIds || []).filter(id => !set.has(id));
+      state.todayPlan.dictationQueue = (state.todayPlan.dictationQueue || []).filter(id => !set.has(id));
+
+      if (state.todayPlan.currentIndex >= state.todayPlan.studyIds.length) {
+        state.todayPlan.currentIndex = 0;
+      }
+      if (state.todayPlan.dictationIndex >= state.todayPlan.dictationQueue.length) {
+        state.todayPlan.dictationIndex = 0;
+      }
+
+      selectedWordIds.clear();
+      saveState();
+      renderAll();
+      alert(`已删除 ${ids.length} 个单词。`);
     }
 
     function deleteAllMasteredWords() {
@@ -803,6 +858,7 @@ conduct 行为；实施 /ˈkɒndʌkt/"></textarea>
         state.todayPlan.dictationIndex = 0;
       }
 
+      selectedWordIds.clear();
       saveState();
       renderAll();
       alert(`已删除 ${masteredIds.length} 个已掌握单词。`);
@@ -868,6 +924,7 @@ conduct 行为；实施 /ˈkɒndʌkt/"></textarea>
         }
       };
 
+      selectedWordIds.clear();
       saveState();
       rebuildTodayPlan(false);
       renderAll();
@@ -996,6 +1053,10 @@ conduct 行为；实施 /ˈkɒndʌkt/"></textarea>
 
       filtered.sort((a, b) => a.word.localeCompare(b.word));
 
+      selectedWordIds = new Set(
+        [...selectedWordIds].filter(id => filtered.some(w => w.id === id))
+      );
+
       if (!filtered.length) {
         list.innerHTML = `<div class="empty">没有找到匹配单词。</div>`;
         return;
@@ -1013,15 +1074,22 @@ conduct 行为；实施 /ˈkɒndʌkt/"></textarea>
           statusHtml += ` <span class="badge badge-red">错题</span>`;
         }
 
+        const checked = selectedWordIds.has(w.id) ? "checked" : "";
+
         return `
           <div class="word-item">
             <div class="word-info">
-              <div class="word-title">${escapeHtml(w.word)}</div>
-              <div>${statusHtml}</div>
-              <div class="word-meta">
-                ${w.phonetic ? escapeHtml(w.phonetic) + "<br>" : ""}
-                ${escapeHtml(w.meaning)}
-                ${p && !p.mastered ? `<br>下次复习：${escapeHtml(p.nextReviewDate)}` : ""}
+              <div style="display:flex; align-items:flex-start; gap:10px;">
+                <input type="checkbox" class="word-checkbox" data-id="${w.id}" ${checked} style="margin-top:4px;" />
+                <div style="flex:1;">
+                  <div class="word-title">${escapeHtml(w.word)}</div>
+                  <div>${statusHtml}</div>
+                  <div class="word-meta">
+                    ${w.phonetic ? escapeHtml(w.phonetic) + "<br>" : ""}
+                    ${escapeHtml(w.meaning)}
+                    ${p && !p.mastered ? `<br>下次复习：${escapeHtml(p.nextReviewDate)}` : ""}
+                  </div>
+                </div>
               </div>
             </div>
             <div class="word-actions">
@@ -1031,6 +1099,17 @@ conduct 行为；实施 /ˈkɒndʌkt/"></textarea>
           </div>
         `;
       }).join("");
+
+      document.querySelectorAll(".word-checkbox").forEach(cb => {
+        cb.addEventListener("change", e => {
+          const id = e.target.dataset.id;
+          if (e.target.checked) {
+            selectedWordIds.add(id);
+          } else {
+            selectedWordIds.delete(id);
+          }
+        });
+      });
     }
 
     function renderWrongBook() {
@@ -1137,6 +1216,8 @@ conduct 行为；实施 /ˈkɒndʌkt/"></textarea>
       renderLibrary();
     });
 
+    document.getElementById("selectAllBtn").addEventListener("click", selectAllFilteredWords);
+    document.getElementById("deleteSelectedBtn").addEventListener("click", deleteSelectedWords);
     document.getElementById("deleteMasteredWordsBtn").addEventListener("click", deleteAllMasteredWords);
 
     document.getElementById("savePlanBtn").addEventListener("click", () => {
@@ -1182,5 +1263,6 @@ conduct 行为；实施 /ˈkɒndʌkt/"></textarea>
 
     initialize();
   </script>
+
 </body>
 </html>
